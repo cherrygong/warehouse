@@ -1,0 +1,24 @@
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Brand:</strong>
+  <%= @brand.brandname %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @product.description %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @product.stock %>
+</p>
+
+<%= link_to 'Edit', edit_brand_product_path(@brand, @product) %> |
+<%= link_to 'Product List', brand_products_path(@brand)%> |
+<%= link_to 'Home', brands_path %>
+

@@ -1,0 +1,40 @@
+<p>
+  <strong>Brand Name: </strong><%= @brand.brandname %>
+</p>
+
+<h4><%= link_to("Click here to get all product details", "/brands/#{@brand.id}/products")%></h4>
+<h4><%= @brand.brandname %> has <%= @brand.products.count %> products</h4>
+
+<%= render @brand.products %><br>
+
+
+<strong>Add new product to this brand</strong><br>
+
+<%= form_for ([@brand, @brand.products.build]) do |f| %>
+
+
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :description %><br>
+      <%= f.text_area :description %>
+    </p>
+
+    <p>
+      <%= f.label :stock %><br>
+      <%= f.number_field :stock %>
+    <p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<%= link_to 'Home', brands_path %>

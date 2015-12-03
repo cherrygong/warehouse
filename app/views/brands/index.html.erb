@@ -1,0 +1,32 @@
+<h1>Listing All Brands & Products</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brandname</th><td></td>
+      <th>Product</th>
+      <th colspan="9"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @brands.each do |brand| %>
+      <tr>
+        <td><%= brand.brandname %></td><td></td>
+        <td>
+          <% brand.products.each do |product| %>
+              <%= link_to("#{product.name}", "/brands/#{brand.id}/products/#{product.id}") %><br>
+          <% end %>
+        </td><td><td><td>
+
+        <td><%= link_to 'Show', brand %></td>
+        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
+        <td><%= link_to 'Destroy', brand, method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Brand', new_brand_path %>
