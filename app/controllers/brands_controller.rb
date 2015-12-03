@@ -12,9 +12,12 @@ class BrandsController < ApplicationController
 
   def new
     @brand = Brand.new
+    @brand.products.build
   end
 
   def edit
+    @brand = Brand.find(params[:id])
+    @product = @brand.product.build
   end
 
   def create
@@ -28,6 +31,7 @@ class BrandsController < ApplicationController
   end
 
   def update
+    @brand = Brand.find(params[:id])
     if @brand.update(brand_params)
        redirect_to brands_path
     else
@@ -49,7 +53,7 @@ class BrandsController < ApplicationController
     # strong parameter for protect project safe,
     # tell rails which parameter can be used in controller
     def brand_params
-      params.require(:brand).permit(:brandname)
+      params.require(:brand).permit(:brandname, products_attributes:[:id, :name])
     end
 
 

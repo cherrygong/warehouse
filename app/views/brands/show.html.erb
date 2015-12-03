@@ -12,27 +12,28 @@
 
 <%= form_for ([@brand, @brand.products.build]) do |f| %>
 
-
-    <p>
+    <div class="field">
       <%= f.label :name %><br>
       <%= f.text_field :name %>
-    </p>
+    </div>
 
-    <p>
+    <div class="field">
       <%= f.label :description %><br>
       <%= f.text_area :description %>
-    </p>
+    </div>
 
-    <p>
+    <div class="field">
       <%= f.label :stock %><br>
-      <%= f.number_field :stock %>
-    <p>
+      <%= f.text_field :stock %>
+    </div>
 
-    <p>
+    <div class="actions">
       <%= f.submit %>
-    </p>
+    </div>
 
 <% end %>
+
+
 
 <br>
 

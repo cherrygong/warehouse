@@ -23,7 +23,10 @@ class ProductsController < ApplicationController
 
     if @product.save
       redirect_to brand_products_path(@brand)
+    else
+      render 'new'
     end
+
   end
 
   def update
