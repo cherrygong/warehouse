@@ -1,6 +1,18 @@
 <h1>Editing Brand</h1>
 
-<%= render 'form' %>
+<%= form_for(@brand) do |f| %>
+
+    <div class="field">
+      <%= f.label :brand_name %><br>
+      <%= f.text_field :brandname %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+<% end %>
 
 <%= link_to 'Show', @brand %> |
 <%= link_to 'Back', brands_path %>

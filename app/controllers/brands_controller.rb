@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
 
+
   before_action :set_brand, only: [:show, :edit, :update, :destroy]
 
 
@@ -17,7 +18,7 @@ class BrandsController < ApplicationController
 
   def edit
     @brand = Brand.find(params[:id])
-    @product = @brand.product.build
+    @product = @brand.products.build
   end
 
   def create
