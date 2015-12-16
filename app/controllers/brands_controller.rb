@@ -21,6 +21,7 @@ class BrandsController < ApplicationController
     @product = @brand.products.build
   end
 
+
   def create
     @brand = Brand.new(brand_params)
 
@@ -33,6 +34,8 @@ class BrandsController < ApplicationController
 
   def update
     @brand = Brand.find(params[:id])
+
+
     if @brand.update(brand_params)
        redirect_to brands_path
     else

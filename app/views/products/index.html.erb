@@ -21,7 +21,7 @@
         <td><%= product.stock %></td>
         <td><%= link_to 'Show', brand_product_path(@brand, product) %></td>
         <td><%= link_to 'Edit', edit_brand_product_path(@brand, product) %></td>
-        <td><%= link_to 'Destroy', [@brand, product], method: :delete %></td>
+        <td><%= link_to 'Destroy', [@brand, product], method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,5 +29,5 @@
 
 <br>
 
-<%= link_to 'New Product', new_brand_product_path(@brand) %><br><br>
-<%= link_to 'Back to Home Page', brands_path %>
+<%= link_to 'New Product', new_brand_product_path(@brand) %> |
+<%= link_to 'Home Page', brands_path %>

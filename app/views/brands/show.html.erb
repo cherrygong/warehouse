@@ -1,12 +1,9 @@
-<p>
-  <strong>Brand Name: </strong><%= @brand.brandname %>
-</p>
+<h3>Brand Name:
+<%= link_to("#{@brand.brandname}", "/brands/#{@brand.id}/products")%></h3>
 
-<h4><%= link_to("Click here to get all product details", "/brands/#{@brand.id}/products")%></h4>
 <h4><%= @brand.brandname %> has <%= @brand.products.count %> products</h4>
 
-<%= render @brand.products %><br>
-
+<%= render 'products/product' %>
 
 <strong>Add new product to this brand</strong><br>
 
@@ -34,8 +31,7 @@
 <% end %>
 
 
-
 <br>
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Home', brands_path %>
+<%= link_to 'Edit Brand', edit_brand_path(@brand) %> |
+<%= link_to 'Home Page', brands_path %>

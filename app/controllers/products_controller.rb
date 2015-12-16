@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = @brand.products.all
+
   end
 
   def show
@@ -20,13 +21,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = @brand.products.new(product_params)
-
     if @product.save
-      redirect_to brand_products_path(@brand)
+      redirect_to @brand
     else
       render 'new'
     end
-
   end
 
   def update
@@ -44,7 +43,7 @@ class ProductsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.find(params[:id])
     @product.destroy
-    redirect_to brand_path(@brand)
+    redirect_to :back
   end
 
   private

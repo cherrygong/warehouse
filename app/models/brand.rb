@@ -6,4 +6,6 @@ class Brand < ActiveRecord::Base
 
   validates :brandname, presence: true
 
+
+
 end

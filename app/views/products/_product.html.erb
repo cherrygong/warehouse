@@ -1,8 +1,13 @@
-<p>
-  <strong>Product:</strong>
+<table>
+  <% @brand.products.each_with_index do |product, i| %>
+      <tr>
+        <td>Product <%= i+1 %>: </td>
 
-  <%= product.name %>
+        <td><%= link_to("#{product.name}", "/brands/#{@brand.id}/products/#{product.id}")%></td>
+        <td><%= link_to 'Destroy', [@brand, product], method: :delete, data: {confirm: 'Are you sure?'} %>
 
-  <%= link_to 'Remove', [product.brand, product], :method => :delete %>
+      <tr>
+      </tr>
+  <% end %>
 
-</p>
+</table><br>

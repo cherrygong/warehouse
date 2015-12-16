@@ -1,20 +1,21 @@
 <%= form_for(@brand) do |f| %>
 
     <div class="field">
-      <%= f.label :brand_name %><br>
+      <%= f.label :brandname, 'Brand Name' %><br>
       <%= f.text_field :brandname %>
     </div>
 
-    <div class="field">
-    <%= f.fields_for :products do |p| %>
-        <%= p.label :Add_product %><br />
-        <%= p.text_field :name %>
-    <% end %>
-    </div><br>
+    <!--<div class="field">-->
+    <!--<%= f.fields_for :products do |p| %>-->
+        <!--<%= p.label :name, 'Add Product' %><br />-->
+        <!--<%= p.text_field :name %>-->
+    <!--<% end %>-->
+    <!--</div><br>-->
 
 
+    <br>
     <div class="actions">
-      <%= f.submit 'Create new brand and its product'%>
+      <%= f.submit %>
     </div>
 
 <% end %>
