@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
   def create
     @product = @brand.products.new(product_params)
     if @product.save
-      redirect_to @brand
+      redirect_to @brand, notice: 'Product was successfully created!'
     else
       render 'new'
     end
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     @brand = Brand.find(params[:brand_id])
     @product = @brand.products.find(params[:id])
     @product.destroy
-    redirect_to :back
+    redirect_to :back, notice: 'Product was successfully destroyed!'
   end
 
   private

@@ -1,6 +1,8 @@
 <h3>Brand Name:
 <%= link_to("#{@brand.brandname}", "/brands/#{@brand.id}/products")%></h3>
 
+<%= image_tag @brand.image.url(:medium) %>
+
 <h4><%= @brand.brandname %> has <%= @brand.products.count %> products</h4>
 
 <%= render 'products/product' %>
@@ -32,6 +34,7 @@
 
 
 <br>
+
 
 <%= link_to 'Edit Brand', edit_brand_path(@brand) %> |
 <%= link_to 'Home Page', brands_path %>

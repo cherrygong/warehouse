@@ -26,7 +26,7 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
 
     if @brand.save
-      redirect_to @brand
+      redirect_to @brand, notice: 'Brand was successfully created!'
     else
       render 'new'
     end
@@ -45,7 +45,7 @@ class BrandsController < ApplicationController
 
   def destroy
     @brand.destroy
-    redirect_to brands_path
+    redirect_to :back, notice: 'Brand was successfully destroyed!'
   end
 
 
@@ -57,7 +57,7 @@ class BrandsController < ApplicationController
     # strong parameter for protect project safe,
     # tell rails which parameter can be used in controller
     def brand_params
-      params.require(:brand).permit(:brandname, products_attributes:[:id, :name])
+      params.require(:brand).permit(:brandname, :image, products_attributes:[:id, :name])
     end
 
 

@@ -1,8 +1,13 @@
-<%= form_for(@brand) do |f| %>
+<%= form_for @brand, html: { multipart: true } do |f| %>
 
     <div class="field">
       <%= f.label :brandname, 'Brand Name' %><br>
       <%= f.text_field :brandname %>
+    </div>
+
+    <div class="field">
+      <%= f.label :image, 'Upload Image' %><br>
+      <%= f.file_field :image %>
     </div>
 
     <!--<div class="field">-->
@@ -18,4 +23,6 @@
       <%= f.submit %>
     </div>
 
+
 <% end %>
+
