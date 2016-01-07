@@ -1,0 +1,40 @@
+<h3>All Product</h3>
+
+<%= form_tag(products_path, :method => "get", id: "search-form") do %>
+    <div>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search Product", :name => nil %>
+    </div>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Product Name</th><td></td>
+    <th>Brand</th><td></td>
+  </tr>
+  </thead>
+
+  <tbody>
+
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to("#{product.name}", "/brands/#{product.brand.id}/products/#{product.id}") %></td><td></td>
+
+        <td><%= link_to("#{product.brand_brandname}", "/brands/#{product.brand.id}/products/") %></td><td></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+
+
+
+</table>
+
+<%= will_paginate @products %>
+
+
+<br>
+
+
+<%= link_to 'Home Page', brands_path %>

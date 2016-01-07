@@ -1,5 +1,9 @@
 <h2><%= @brand.brandname %> Products</h2>
 
+<%= form_tag(brand_products_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
+    <%= submit_tag "Search Product" %>
+<% end %>
 
 <table>
   <thead>

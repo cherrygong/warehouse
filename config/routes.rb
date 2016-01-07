@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :products
   end
 
+  get 'products' => 'products#list'
+  get 'products' => 'products#show_details'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

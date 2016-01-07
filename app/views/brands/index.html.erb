@@ -3,17 +3,18 @@
 <table>
   <thead>
     <tr>
-      <th>Brandname</th><td></td>
+      <th>Brand Name</th><td></td>
+      <th>Image</th><td></td>
       <th colspan="9"></th>
     </tr>
   </thead>
 
   <tbody>
+    <%= will_paginate @brands %>
     <% @brands.each do |brand| %>
       <tr>
         <td><%= link_to("#{brand.brandname}", "/brands/#{brand.id}/products") %></td><td></td>
-
-        <td><%= image_tag brand.image.url(:thumb) %></td>
+        <td><%= image_tag brand.image.url(:thumb) %></td><td></td>
 
         <td><%= link_to '+ New Product', "/brands/#{brand.id}/products/new" %></td>
         <td><%= link_to 'Show', brand %></td>
@@ -21,10 +22,11 @@
         <td><%= link_to 'Destroy', brand, method: :delete, data: {confirm: 'Are you sure?'} %></td>
       </tr>
     <% end %>
+    <br>
   </tbody>
 </table>
 
 <br>
 
-
-<%= link_to 'New Brand', new_brand_path %>
+<%= link_to 'New Brand', new_brand_path %> |
+<%= link_to 'List All Products', products_path %>

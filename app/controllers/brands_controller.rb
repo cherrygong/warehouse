@@ -6,6 +6,8 @@ class BrandsController < ApplicationController
 
   def index
     @brands = Brand.all
+
+    @brands = Brand.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
